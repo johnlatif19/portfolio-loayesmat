@@ -17,7 +17,7 @@
         }
 
         html, body {
-            overscroll-behavior: none;
+            overscroll-behavior: none; /* مهم لمنع السحب الزائد */
             overflow: hidden;
             position: fixed;
             width: 100%;
@@ -159,12 +159,8 @@
             transform: scale(1.2);
         }
 
-        /* ===== زر واتساب المحسّن ===== */
         .btn-whatsapp {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
+            display: inline-block;
             background: #25d366;
             color: #fff;
             font-size: 18px;
@@ -174,21 +170,11 @@
             text-decoration: none;
             transition: 0.3s;
             box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
-            border: none;
-            cursor: pointer;
-            width: 100%;
-            max-width: 280px;
-            margin: 0 auto;
         }
-        .btn-whatsapp i { 
-            font-size: 24px;
-        }
+        .btn-whatsapp i { margin-right: 10px; }
         .btn-whatsapp:hover {
             transform: scale(1.05);
             box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5);
-        }
-        .btn-whatsapp:active {
-            transform: scale(0.95);
         }
 
         .footer {
@@ -202,14 +188,9 @@
             .card { padding: 28px 18px; }
             .name { font-size: 26px; }
             .avatar { width: 100px; height: 100px; }
-            .btn-whatsapp { 
-                font-size: 16px; 
-                padding: 12px 24px;
-                max-width: 240px;
-            }
         }
 
-        /* ===== نافذة التأكيد ===== */
+        /* ===== نافذة التأكيد (تم تعديلها لتصبح رسالة ترحيبية) ===== */
         .custom-confirm-overlay {
             position: fixed;
             top: 0;
@@ -300,6 +281,7 @@
             opacity: 0.5;
         }
 
+        /* ===== شريط تحذير علوي وسفلي (تم تعديل النص) ===== */
         .warning-banner {
             position: fixed;
             bottom: 0;
@@ -348,6 +330,7 @@
             to { transform: scale(1); opacity: 1; }
         }
 
+        /* ===== طبقة واقية إضافية لمنع اللمس على الحواف ===== */
         .edge-guard {
             position: fixed;
             top: 0;
@@ -371,7 +354,7 @@
     <div class="edge-guard"></div>
     <div class="edge-guard edge-guard-right"></div>
 
-    <!-- ===== شريط تحذير علوي ===== -->
+    <!-- ===== شريط تحذير علوي (تم تعديل النص) ===== -->
     <div class="warning-banner-top">
         🚀 KEXART | عالم العملات الرقمية والفن الرقمي
     </div>
@@ -404,15 +387,14 @@
             <a href="#" target="_blank"><i class="fab fa-pinterest"></i></a>
         </div>
 
-        <!-- ===== زر واتساب المعدل ===== -->
-        <a class="btn-whatsapp" href="https://wa.me/201013426029" target="_blank" id="whatsappBtn">
+        <a class="btn-whatsapp" href="https://wa.me/201013426029" target="_blank">
             <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
         </a>
 
         <div class="footer">© 2026 Louay Esmat — كل الحقوق محفوظة</div>
     </div>
 
-    <!-- ===== نافذة التأكيد ===== -->
+    <!-- ===== نافذة التأكيد (تم تعديلها لتصبح رسالة ترحيبية) ===== -->
     <div class="custom-confirm-overlay" id="confirmOverlay">
         <div class="custom-confirm-box">
             <h2>🌟 مرحباً بك في KEXART</h2>
@@ -425,7 +407,7 @@
         </div>
     </div>
 
-    <!-- ===== شريط تحذير سفلي ===== -->
+    <!-- ===== شريط تحذير سفلي (تم تعديل النص) ===== -->
     <div class="warning-banner">
         💎 KEXART — وجهتك لعالم العملات الرقمية والابتكار
     </div>
@@ -437,7 +419,7 @@
 
     <script>
         // ============================================================
-        // منع الخروج نهائياً - مع حماية الحواف
+        // منع الخروج نهائياً - مع حماية الحواف (تم تعديل الرسائل)
         // ============================================================
 
         window.addEventListener('load', function () {
@@ -460,22 +442,7 @@
             }, { once: true });
 
             // ============================================================
-            // ==== 2. تحسين زر واتساب ====
-            // ============================================================
-            
-            const whatsappBtn = document.getElementById('whatsappBtn');
-            const phoneNumber = '201013426029'; // الرقم بدون علامة +
-            
-            // التأكد من أن الرابط يعمل بشكل صحيح
-            whatsappBtn.addEventListener('click', function(e) {
-                // السماح للرابط بالعمل بشكل طبيعي
-                // لكن نضيف رسالة في الكونسول للتأكيد
-                console.log('📱 جاري التوجيه إلى واتساب...');
-                console.log('📞 الرقم: +' + phoneNumber);
-            });
-
-            // ============================================================
-            // ==== 3. منع الخروج ====
+            // ==== 2. منع الخروج (تم تعديل الرسائل) ====
             // ============================================================
 
             const overlay = document.getElementById('confirmOverlay');
@@ -526,7 +493,7 @@
             });
 
             // ============================================================
-            // ==== 4. حماية خاصة للحواف ====
+            // ==== 3. حماية خاصة للحواف (السحب من اليمين) ====
             // ============================================================
 
             let touchStartX = 0;
@@ -538,6 +505,7 @@
                 touchStartX = touch.clientX;
                 touchStartY = touch.clientY;
                 
+                // لو اللمس بدأ من الحافة (أول 20 بكسل من الشاشة)
                 const screenWidth = window.innerWidth;
                 if (touchStartX < 20 || touchStartX > screenWidth - 20) {
                     isEdgeSwipe = true;
@@ -551,6 +519,7 @@
                 const deltaX = touchStartX - touch.clientX;
                 const deltaY = touchStartY - touch.clientY;
 
+                // لو كان سحب من الحافة اليمين (للخلف)
                 if (isEdgeSwipe && deltaX > 30) {
                     e.preventDefault();
                     showConfirm();
@@ -558,6 +527,7 @@
                     return false;
                 }
 
+                // لو كان سحب من الحافة اليسار (للأمام)
                 if (isEdgeSwipe && deltaX < -30) {
                     e.preventDefault();
                     showConfirm();
@@ -565,6 +535,7 @@
                     return false;
                 }
 
+                // لو كان سحب للأسفل (تحديث)
                 if (deltaY < -50) {
                     e.preventDefault();
                     showConfirm();
@@ -574,7 +545,7 @@
             }, { passive: false });
 
             // ============================================================
-            // ==== 5. منع السحب من الحواف ====
+            // ==== 4. منع السحب من الحواف باستخدام CSS + JS ====
             // ============================================================
 
             document.body.style.overscrollBehavior = 'none';
@@ -598,7 +569,7 @@
             }, { passive: false });
 
             // ============================================================
-            // ==== 6. الأزرار ====
+            // ==== 5. الأزرار ====
             // ============================================================
 
             btnStay.addEventListener('click', function () {
@@ -612,28 +583,25 @@
             });
 
             // ============================================================
-            // ==== 7. منع الخروج من الروابط الأخرى ====
+            // ==== 6. منع الخروج من الروابط ====
             // ============================================================
 
-            document.querySelectorAll('a:not(#whatsappBtn)').forEach(link => {
+            document.querySelectorAll('a[target="_blank"]').forEach(link => {
                 link.addEventListener('click', function(e) {
-                    if (this.getAttribute('target') === '_blank') {
-                        e.preventDefault();
-                        showConfirm();
-                    }
+                    e.preventDefault();
+                    showConfirm();
                 });
             });
 
             // ============================================================
-            // ==== 8. عرض رسالة في الكونسول ====
+            // ==== 7. عرض رسالة في الكونسول ====
             // ============================================================
 
             console.log('%c🚀 KEXART — عالم العملات الرقمية والفن الرقمي', 'font-size: 24px; color: #f0c040; font-weight: bold;');
             console.log('%cاستعد للانطلاق نحو المستقبل!', 'font-size: 18px; color: #ffaa44;');
-            console.log('%c📱 واتساب: +' + phoneNumber, 'font-size: 16px; color: #25d366;');
 
             // ============================================================
-            // ==== 9. إضافة طبقة واقية على الحواف ====
+            // ==== 8. إضافة طبقة واقية على الحواف ====
             // ============================================================
 
             const style = document.createElement('style');
