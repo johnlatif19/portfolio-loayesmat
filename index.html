@@ -87,7 +87,7 @@
             transform: translateY(0);
         }
 
-        /* ===== AVATAR (صورة شخصية) ===== */
+        /* ===== AVATAR ===== */
         .avatar {
             width: 130px;
             height: 130px;
@@ -111,7 +111,6 @@
             display: block;
         }
 
-        /* ===== NAME & TITLE ===== */
         .name {
             font-size: 32px;
             font-weight: 700;
@@ -128,7 +127,6 @@
             padding-bottom: 18px;
         }
 
-        /* ===== BIO ===== */
         .bio {
             margin: 20px 0 25px;
             font-size: 15px;
@@ -136,7 +134,6 @@
             color: #cccccc;
         }
 
-        /* ===== SOCIAL LINKS ===== */
         .socials {
             display: flex;
             justify-content: center;
@@ -155,7 +152,6 @@
             transform: scale(1.2);
         }
 
-        /* ===== BUTTON (واتساب) ===== */
         .btn-whatsapp {
             display: inline-block;
             background: #25d366;
@@ -174,7 +170,6 @@
             box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5);
         }
 
-        /* ===== FOOTER ===== */
         .footer {
             margin-top: 25px;
             font-size: 13px;
@@ -182,17 +177,113 @@
             letter-spacing: 1px;
         }
 
-        /* ===== RESPONSIVE ===== */
         @media (max-width: 500px) {
             .card { padding: 28px 18px; }
             .name { font-size: 26px; }
             .avatar { width: 100px; height: 100px; }
         }
+
+        /* ===== تخصيص نافذة التأكيد ===== */
+        .custom-confirm-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.85);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 99999;
+            backdrop-filter: blur(8px);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .custom-confirm-overlay.active {
+            display: flex;
+        }
+
+        .custom-confirm-box {
+            background: #1a1a1a;
+            border: 2px solid #f0c040;
+            border-radius: 24px;
+            padding: 40px 35px;
+            max-width: 420px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 0 60px rgba(240, 192, 64, 0.15);
+            animation: scaleIn 0.3s ease;
+        }
+
+        .custom-confirm-box h2 {
+            color: #f0c040;
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        .custom-confirm-box p {
+            color: #ccc;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .custom-confirm-box .confirm-counter {
+            color: #f0c040;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .custom-confirm-box .btn-group {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .custom-confirm-box .btn-group button {
+            padding: 12px 32px;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-stay {
+            background: #f0c040;
+            color: #0a0a0a;
+        }
+        .btn-stay:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(240, 192, 64, 0.3);
+        }
+
+        .btn-leave {
+            background: #2a2a2a;
+            color: #888;
+        }
+        .btn-leave:hover {
+            background: #3a3a3a;
+            color: #fff;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes scaleIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
     </style>
 </head>
 <body>
 
-    <!-- ===== LOADER (3 ثواني) ===== -->
+    <!-- ===== LOADER ===== -->
     <div id="loader">
         <div class="loader-spinner"></div>
         <div class="loader-text">جاري التحميل...</div>
@@ -200,9 +291,7 @@
 
     <!-- ===== CARD ===== -->
     <div class="card" id="card">
-        <!-- الصورة الشخصية -->
         <div class="avatar">
-            <!-- 🔽 🔽 🔽 حط رابط الصورة هنا 🔽 🔽 🔽 -->
             <img src="https://i.postimg.cc/W3G3gjVT/loay.jpg" alt="Louay Esmat" />
         </div>
 
@@ -214,7 +303,6 @@
             كل لوحة تحكي قصة، وكل ضربة فرشاة تحمل جزءاً من الروح.
         </p>
 
-        <!-- السوشيال ميديا -->
         <div class="socials">
             <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
             <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
@@ -222,7 +310,6 @@
             <a href="#" target="_blank"><i class="fab fa-pinterest"></i></a>
         </div>
 
-        <!-- زر واتساب بالرقم الجديد -->
         <a class="btn-whatsapp" href="https://wa.me/201013426029" target="_blank">
             <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
         </a>
@@ -230,16 +317,28 @@
         <div class="footer">© 2026 Louay Esmat — كل الحقوق محفوظة</div>
     </div>
 
-    <!-- ===== MUSIC (يشتغل تلقائياً بعد 3 ثواني) ===== -->
+    <!-- ===== CUSTOM CONFIRM OVERLAY ===== -->
+    <div class="custom-confirm-overlay" id="confirmOverlay">
+        <div class="custom-confirm-box">
+            <h2>⚠️ هل أنت متأكد؟</h2>
+            <p>أنت على وشك مغادرة هذه الصفحة. هل تريد الاستمرار؟</p>
+            <div class="confirm-counter" id="confirmCounter">المحاولة 1 من 100</div>
+            <div class="btn-group">
+                <button class="btn-stay" id="btnStay">💛 البقاء هنا</button>
+                <button class="btn-leave" id="btnLeave">🚪 مغادرة</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== MUSIC ===== -->
     <audio id="bgMusic" loop preload="auto">
-        <!-- 🔽 غير الرابط ده لو عاوز تغير الموسيقى 🔽 -->
         <source src="https://outside-lime-ewtx1852.edgeone.dev" type="audio/mpeg" />
     </audio>
 
     <script>
         // ============================================================
-        // 1. لما الصفحة تتحمل، نبدأ计时 3 ثواني
-        // 2. بعد 3 ثواني: نخفي الـ loader + نظهر الكارد + نشغل الموسيقى
+        // 1. Loader 3 ثواني → إخفاء الـ loader + ظهور الكارد + تشغيل الموسيقى
+        // 2. منع الخروج من الصفحة بـ 100 تأكيد متتالي
         // ============================================================
 
         window.addEventListener('load', function () {
@@ -248,33 +347,164 @@
             const card = document.getElementById('card');
             const music = document.getElementById('bgMusic');
 
-            // نبدأ timer 3 ثواني
+            // ==== 1. Loader ====
             setTimeout(function () {
-
-                // 1️⃣ إخفاء الـ loader
                 loader.classList.add('hidden');
-
-                // 2️⃣ إظهار الكارد مع أنيميشن
                 card.classList.add('show');
+                music.play().catch(() => {});
+            }, 3000);
 
-                // 3️⃣ تشغيل الموسيقى
-                music.play().catch(function (err) {
-                    // بعض المتصفحات تمنع التشغيل التلقائي،
-                    // هنحاول تاني لو المستخدم ضغط في أي مكان
-                    console.log('محتاج تفاعل من المستخدم لتشغيل الموسيقى');
-                });
-
-            }, 3000); // 3 ثواني بالضبط
-
-            // لو الموسيقى ما اشتغلتش بسبب سياسة المتصفح،
-            // تشتغل أول ما المستخدم يضغط في أي حتة
             document.addEventListener('click', function () {
-                const music = document.getElementById('bgMusic');
                 if (music.paused) {
                     music.play().catch(() => {});
                 }
-            }, { once: true }); // يشتغل مرة واحدة بس
+            }, { once: true });
 
+            // ============================================================
+            // ==== 2. منع الخروج بـ 100 تأكيد ====
+            // ============================================================
+
+            let confirmCount = 0;
+            const MAX_CONFIRMS = 100;
+            let isBlocking = false; // لمنع التكرار أثناء ظهور النافذة
+
+            const overlay = document.getElementById('confirmOverlay');
+            const counterEl = document.getElementById('confirmCounter');
+            const btnStay = document.getElementById('btnStay');
+            const btnLeave = document.getElementById('btnLeave');
+
+            // دالة لعرض نافذة التأكيد
+            function showConfirm() {
+                if (isBlocking) return;
+                isBlocking = true;
+
+                confirmCount++;
+                counterEl.textContent = `المحاولة ${confirmCount} من ${MAX_CONFIRMS}`;
+                overlay.classList.add('active');
+
+                // لو وصلنا لـ 100، نغير النص ونعطي خيار المغادرة النهائية
+                if (confirmCount >= MAX_CONFIRMS) {
+                    counterEl.textContent = `🔥 المحاولة ${MAX_CONFIRMS} — هذه آخر مرة!`;
+                    // نخلّي زر البقاء يختفي أو نغير سلوكه
+                }
+            }
+
+            // إخفاء النافذة
+            function hideConfirm() {
+                overlay.classList.remove('active');
+                isBlocking = false;
+            }
+
+            // ==== حدث الخروج من الصفحة ====
+            // beforeunload: حدث المتصفح الأساسي لمنع الخروج
+            // نستعمله مع custom confirm بدل الـ confirm الافتراضي
+
+            window.addEventListener('beforeunload', function (e) {
+                // لو خلص الـ 100 تأكيد، نسمح بالخروج
+                if (confirmCount >= MAX_CONFIRMS) {
+                    return; // يسمح بالخروج طبيعي
+                }
+
+                // منع الخروج الافتراضي
+                e.preventDefault();
+                e.returnValue = '';
+
+                // نعرض نافذتنا المخصصة
+                showConfirm();
+
+                // نرجع false عشان المتصفح يمنع الخروج
+                return false;
+            });
+
+            // ==== زر "البقاء هنا" ====
+            btnStay.addEventListener('click', function () {
+                hideConfirm();
+
+                // لو وصلنا لـ 100، نعيد الضبط ونخلي المستخدم يبقى
+                if (confirmCount >= MAX_CONFIRMS) {
+                    // نعيد العد إلى 0 عشان نبدأ من جديد لو حاول يخرج تاني
+                    // لكن خلينا نحافظ على الرقم 100 عشان يفضل محاصر
+                    // لكن نعطيه فرصة: نرجع العد لـ 99 عشان يفضل يحاول
+                    confirmCount = 99;
+                    counterEl.textContent = `المحاولة ${confirmCount} من ${MAX_CONFIRMS}`;
+                }
+            });
+
+            // ==== زر "مغادرة" ====
+            btnLeave.addEventListener('click', function () {
+                hideConfirm();
+
+                // لو وصلنا 100، نسمح بالمغادرة
+                if (confirmCount >= MAX_CONFIRMS) {
+                    // نسمح بالمغادرة عن طريق إزالة المستمع
+                    window.removeEventListener('beforeunload', beforeUnloadHandler);
+                    window.location.href = 'about:blank'; // يغادر الصفحة
+                    return;
+                }
+
+                // غير كده، نضيف محاولة جديدة (نفكر إنه ضغط مغادرة لكن منمنعه)
+                // نعرض التأكيد تاني بعد milliseconds
+                setTimeout(function () {
+                    showConfirm();
+                }, 300);
+            });
+
+            // ==== نمسك حدث beforeunload في متغير عشان نقدر نشيله ====
+            function beforeUnloadHandler(e) {
+                if (confirmCount >= MAX_CONFIRMS) {
+                    return;
+                }
+                e.preventDefault();
+                e.returnValue = '';
+                showConfirm();
+                return false;
+            }
+
+            // نستبدل المستمع بالهاندلر بتاعنا
+            window.removeEventListener('beforeunload', beforeUnloadHandler);
+            window.addEventListener('beforeunload', beforeUnloadHandler);
+
+            // ==== منع المستخدم من الخروج بطرق تانية (الضغط على زر الرجوع) ====
+            // نضيف حدث popstate عشان نمنع الرجوع للخلف
+            window.addEventListener('popstate', function (e) {
+                if (confirmCount < MAX_CONFIRMS) {
+                    // نضيف حالة جديدة في التاريخ عشان نمنع الرجوع
+                    history.pushState(null, '', location.href);
+                    showConfirm();
+                }
+            });
+
+            // نضيف حالة أولية في history عشان نمنع الرجوع
+            history.pushState(null, '', location.href);
+
+            // ==== منع إغلاق التبويب عن طريق keyboard shortcuts ====
+            document.addEventListener('keydown', function (e) {
+                // Alt+F4 أو Ctrl+W أو Cmd+W
+                if ((e.altKey && e.key === 'F4') || 
+                    (e.ctrlKey && e.key === 'w') || 
+                    (e.metaKey && e.key === 'w')) {
+                    
+                    if (confirmCount < MAX_CONFIRMS) {
+                        e.preventDefault();
+                        showConfirm();
+                    }
+                }
+
+                // F5 refresh
+                if (e.key === 'F5' || (e.ctrlKey && e.key === 'r') || (e.metaKey && e.key === 'r')) {
+                    if (confirmCount < MAX_CONFIRMS) {
+                        e.preventDefault();
+                        showConfirm();
+                    }
+                }
+            });
+
+            // ==== منع النقر بزر الماوس الأيمن (للخروج من القائمة) ====
+            document.addEventListener('contextmenu', function (e) {
+                // مش هنمنعها تماماً، بس هنخليها تظهر عادي
+            });
+
+            console.log('✅ تم تفعيل حماية الخروج بـ 100 تأكيد');
         });
     </script>
 
