@@ -3,11 +3,9 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Louay Esmat | Portfolio</title>
-
+    <title>Louay Esmat | KEXART</title>
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <style>
         /* ===== RESET & BASE ===== */
         * {
@@ -18,7 +16,7 @@
         }
 
         body {
-            background: #0b0b0b;
+            background: #0a0a0a;
             color: #fff;
             min-height: 100vh;
             display: flex;
@@ -34,7 +32,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: #0b0b0b;
+            background: #0a0a0a;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -58,9 +56,7 @@
         }
 
         @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
+            to { transform: rotate(360deg); }
         }
 
         .loader-text {
@@ -91,21 +87,28 @@
             transform: translateY(0);
         }
 
-        /* ===== AVATAR ===== */
+        /* ===== AVATAR (صورة شخصية) ===== */
         .avatar {
             width: 130px;
             height: 130px;
             border-radius: 50%;
-            background: linear-gradient(145deg, #f0c040, #d4a020);
             margin: 0 auto 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 60px;
-            font-weight: 700;
-            color: #0b0b0b;
-            box-shadow: 0 0 0 4px #2a2a2a, 0 0 0 8px #141414;
-            user-select: none;
+            overflow: hidden;
+            border: 4px solid #f0c040;
+            box-shadow: 0 0 0 4px #2a2a2a, 0 0 0 8px #141414, 0 0 30px rgba(240, 192, 64, 0.2);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        .avatar:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 0 4px #2a2a2a, 0 0 0 8px #141414, 0 0 50px rgba(240, 192, 64, 0.4);
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         /* ===== NAME & TITLE ===== */
@@ -114,10 +117,7 @@
             font-weight: 700;
             letter-spacing: 1px;
         }
-
-        .name span {
-            color: #f0c040;
-        }
+        .name span { color: #f0c040; }
 
         .title {
             color: #aaaaaa;
@@ -144,14 +144,12 @@
             margin-bottom: 28px;
             flex-wrap: wrap;
         }
-
         .socials a {
             color: #aaaaaa;
             font-size: 24px;
             transition: 0.3s;
             text-decoration: none;
         }
-
         .socials a:hover {
             color: #f0c040;
             transform: scale(1.2);
@@ -170,11 +168,7 @@
             transition: 0.3s;
             box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
         }
-
-        .btn-whatsapp i {
-            margin-right: 10px;
-        }
-
+        .btn-whatsapp i { margin-right: 10px; }
         .btn-whatsapp:hover {
             transform: scale(1.05);
             box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5);
@@ -190,17 +184,9 @@
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 500px) {
-            .card {
-                padding: 28px 18px;
-            }
-            .name {
-                font-size: 26px;
-            }
-            .avatar {
-                width: 100px;
-                height: 100px;
-                font-size: 44px;
-            }
+            .card { padding: 28px 18px; }
+            .name { font-size: 26px; }
+            .avatar { width: 100px; height: 100px; }
         }
     </style>
 </head>
@@ -214,24 +200,26 @@
 
     <!-- ===== CARD ===== -->
     <div class="card" id="card">
-        <!-- الصورة الرمزية (حروف الاسم) -->
-        <div class="avatar">LE</div>
+        <!-- الصورة الشخصية -->
+        <div class="avatar">
+            <!-- 🔽 🔽 🔽 حط رابط الصورة هنا 🔽 🔽 🔽 -->
+            <img src="https://i.postimg.cc/W3G3gjVT/loay.jpg" alt="Louay Esmat" />
+        </div>
 
         <h1 class="name">Louay <span>Esmat</span></h1>
-        <p class="title">🎯 مطور واجهات | UI/UX Enthusiast</p>
+        <p class="title">🎨 فنان تشكيلي | KEXART</p>
 
         <p class="bio">
-            مرحباً! أنا <strong>Louay</strong>، شغوف بتصميم وتطوير تجارب رقمية مميزة.
-            أؤمن بأن التفاصيل الصغيرة تصنع الفارق الكبير.
+            مرحباً! أنا <strong>Louay</strong>، شغوف بالفن والتعبير عن المشاعر من خلال الألوان والأشكال. 
+            كل لوحة تحكي قصة، وكل ضربة فرشاة تحمل جزءاً من الروح.
         </p>
 
         <!-- السوشيال ميديا -->
         <div class="socials">
-            <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
             <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
             <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-pinterest"></i></a>
         </div>
 
         <!-- زر واتساب بالرقم الجديد -->
@@ -244,7 +232,8 @@
 
     <!-- ===== MUSIC (يشتغل تلقائياً بعد 3 ثواني) ===== -->
     <audio id="bgMusic" loop preload="auto">
-        <source src="https://anytourl.com/s/86100708715085381" type="audio/mpeg" />
+        <!-- 🔽 غير الرابط ده لو عاوز تغير الموسيقى 🔽 -->
+        <source src="https://www.freeconvert.com/mp3-converter" type="audio/mpeg" />
     </audio>
 
     <script>
