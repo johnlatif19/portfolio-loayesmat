@@ -190,7 +190,7 @@
             .avatar { width: 100px; height: 100px; }
         }
 
-        /* ===== نافذة التأكيد ===== */
+        /* ===== نافذة التأكيد (تم تعديلها لتصبح رسالة ترحيبية) ===== */
         .custom-confirm-overlay {
             position: fixed;
             top: 0;
@@ -236,7 +236,7 @@
         }
 
         .custom-confirm-box .confirm-counter {
-            color: #ff4444;
+            color: #ffaa44;
             font-size: 22px;
             font-weight: 700;
             margin-bottom: 20px;
@@ -281,7 +281,7 @@
             opacity: 0.5;
         }
 
-        /* ===== شريط تحذير علوي وسفلي ===== */
+        /* ===== شريط تحذير علوي وسفلي (تم تعديل النص) ===== */
         .warning-banner {
             position: fixed;
             bottom: 0;
@@ -304,9 +304,9 @@
             top: 0;
             left: 0;
             width: 100%;
-            background: rgba(255, 68, 68, 0.1);
-            border-bottom: 2px solid #ff4444;
-            color: #ff4444;
+            background: rgba(255, 68, 68, 0.05);
+            border-bottom: 2px solid #f0c040;
+            color: #f0c040;
             text-align: center;
             padding: 8px;
             font-size: 12px;
@@ -354,9 +354,9 @@
     <div class="edge-guard"></div>
     <div class="edge-guard edge-guard-right"></div>
 
-    <!-- ===== شريط تحذير علوي ===== -->
+    <!-- ===== شريط تحذير علوي (تم تعديل النص) ===== -->
     <div class="warning-banner-top">
-        ⛔ هذه الصفحة محمية بالكامل — لا يمكنك الخروج
+        🚀 KEXART | عالم العملات الرقمية والفن الرقمي
     </div>
 
     <!-- ===== LOADER ===== -->
@@ -372,11 +372,12 @@
         </div>
 
         <h1 class="name">Louay <span>Esmat</span></h1>
-        <p class="title">🎨 فنان تشكيلي | KEXART</p>
+        <p class="title">💰 خبير عملات رقمية | KEXART</p>
 
         <p class="bio">
-            مرحباً! أنا <strong>Louay</strong>، شغوف بالفن والتعبير عن المشاعر من خلال الألوان والأشكال. 
-            كل لوحة تحكي قصة، وكل ضربة فرشاة تحمل جزءاً من الروح.
+            مرحباً! أنا <strong>Louay</strong>، متخصص في عالم العملات الرقمية والبلوكشين. 
+            أساعد المستثمرين على فهم السوق، وتحليل الاتجاهات، وبناء محافظ رقمية ذكية. 
+            الفن الرقمي والـ NFT هما مستقبل الإبداع، وأنا هنا لأشاركك رحلتي.
         </p>
 
         <div class="socials">
@@ -393,22 +394,22 @@
         <div class="footer">© 2026 Louay Esmat — كل الحقوق محفوظة</div>
     </div>
 
-    <!-- ===== نافذة التأكيد ===== -->
+    <!-- ===== نافذة التأكيد (تم تعديلها لتصبح رسالة ترحيبية) ===== -->
     <div class="custom-confirm-overlay" id="confirmOverlay">
         <div class="custom-confirm-box">
-            <h2>🚫 ممنوع الخروج!</h2>
-            <p>حاولت تهرب؟ 😄 هذه الصفحة محمية ولا يمكنك مغادرتها!</p>
-            <div class="confirm-counter" id="confirmCounter">⛔ تم منع الخروج</div>
+            <h2>🌟 مرحباً بك في KEXART</h2>
+            <p>استعد لاستكشاف عالم العملات الرقمية والفن الرقمي معاً. دعنا نبني مستقبلك المالي!</p>
+            <div class="confirm-counter" id="confirmCounter">🚀 انطلق إلى النجاح</div>
             <div class="btn-group">
-                <button class="btn-stay" id="btnStay">💛 رجوع للصفحة</button>
-                <button class="btn-leave" id="btnLeave">🚫 مغادرة (غير مسموح)</button>
+                <button class="btn-stay" id="btnStay">💛 العودة للصفحة</button>
+                <button class="btn-leave" id="btnLeave">🚀 استكشف</button>
             </div>
         </div>
     </div>
 
-    <!-- ===== شريط تحذير سفلي ===== -->
+    <!-- ===== شريط تحذير سفلي (تم تعديل النص) ===== -->
     <div class="warning-banner">
-        ⚠️ لا يمكنك الخروج — هذه الصفحة محمية بالكامل ⚠️
+        💎 KEXART — وجهتك لعالم العملات الرقمية والابتكار
     </div>
 
     <!-- ===== MUSIC ===== -->
@@ -418,7 +419,7 @@
 
     <script>
         // ============================================================
-        // منع الخروج نهائياً - مع حماية الحواف
+        // منع الخروج نهائياً - مع حماية الحواف (تم تعديل الرسائل)
         // ============================================================
 
         window.addEventListener('load', function () {
@@ -441,7 +442,7 @@
             }, { once: true });
 
             // ============================================================
-            // ==== 2. منع الخروج ====
+            // ==== 2. منع الخروج (تم تعديل الرسائل) ====
             // ============================================================
 
             const overlay = document.getElementById('confirmOverlay');
@@ -455,7 +456,7 @@
 
             function showConfirm() {
                 overlay.classList.add('active');
-                counterEl.textContent = '⛔ ممنوع الخروج! حاول تاني 😄';
+                counterEl.textContent = '🚀 استمر في رحلتك مع KEXART!';
             }
 
             function hideConfirm() {
@@ -522,7 +523,6 @@
                 if (isEdgeSwipe && deltaX > 30) {
                     e.preventDefault();
                     showConfirm();
-                    // نرجّع النافذة بقوة
                     setTimeout(() => showConfirm(), 100);
                     return false;
                 }
@@ -548,11 +548,9 @@
             // ==== 4. منع السحب من الحواف باستخدام CSS + JS ====
             // ============================================================
 
-            // منع الـ overscroll behaviour
             document.body.style.overscrollBehavior = 'none';
             document.documentElement.style.overscrollBehavior = 'none';
 
-            // منع الـ pull to refresh على الموبايل
             let lastTouchY = 0;
             document.addEventListener('touchstart', function(e) {
                 lastTouchY = e.touches[0].clientY;
@@ -562,7 +560,6 @@
                 const touchY = e.touches[0].clientY;
                 const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
                 
-                // لو كان في أعلى الصفحة وبيحاول يسحب للأسفل
                 if (scrollTop === 0 && touchY > lastTouchY + 10) {
                     e.preventDefault();
                     showConfirm();
@@ -600,24 +597,21 @@
             // ==== 7. عرض رسالة في الكونسول ====
             // ============================================================
 
-            console.log('%c🚫 هذه الصفحة محمية بالكامل - لا يمكنك الخروج!', 'font-size: 24px; color: #f0c040; font-weight: bold;');
-            console.log('%cحتى لو سحبت من الحواف 😄', 'font-size: 18px; color: #ff4444;');
+            console.log('%c🚀 KEXART — عالم العملات الرقمية والفن الرقمي', 'font-size: 24px; color: #f0c040; font-weight: bold;');
+            console.log('%cاستعد للانطلاق نحو المستقبل!', 'font-size: 18px; color: #ffaa44;');
 
             // ============================================================
             // ==== 8. إضافة طبقة واقية على الحواف ====
             // ============================================================
 
-            // نضيف طبقات شفافة على الحواف تمنع اللمس
             const style = document.createElement('style');
             style.textContent = `
                 .edge-guard, .edge-guard-right {
                     pointer-events: none !important;
                 }
-                /* نمنع الـ swipe من الحواف باستخدام CSS */
                 body {
                     touch-action: pan-y !important;
                 }
-                /* منع التحديد */
                 * {
                     -webkit-touch-callout: none;
                     -webkit-user-select: none;
@@ -625,7 +619,7 @@
             `;
             document.head.appendChild(style);
 
-            console.log('✅ تم تفعيل الحماية النهائية - حتى الحواف محمية!');
+            console.log('✅ تم تفعيل الحماية النهائية - KEXART');
         });
     </script>
 
